@@ -1,7 +1,7 @@
 let modInfo = {
 	name: "The Tree Of Creation",
 	author: "Acclord",
-	pointsName: "points",
+	pointsName: "water",
 	modFiles: ["layers.js", "tree.js"],
 
 	discordName: "",
@@ -42,6 +42,9 @@ function getPointGen() {
 		return new Decimal(0)
 
 	let gain = new Decimal(1)
+	if (hasUpgrade('L', 11)) gain = gain.times(1.5)
+	if (hasUpgrade('L', 12)) gain = gain.times(3)
+	if (hasUpgrade('L', 13)) gain = gain.times(upgradeEffect('L', 13))
 	return gain
 }
 
